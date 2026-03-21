@@ -1,0 +1,37 @@
+SCRIPT DEMONSTRATION SITE ECOCONCU (2–3 minutes)
+
+1. Introduction
+Nous avons donc réalisé une version écoconçue de la page d’accueil de Basic-Fit, que nous allons vous présenter.
+
+2. Vue globale
+L’objectif était de conserver les informations essentielles tout en réduisant au maximum les ressources utilisées.
+
+3. Header
+Ici, nous avons simplifié la navigation au strict minimum, avec uniquement les sections importantes.
+
+4. Hero
+La section d’introduction est volontairement simple, sans image ni animation, afin de limiter le poids et améliorer la lisibilité.
+
+5. Abonnements
+Nous conservons les offres principales, mais présentées sous forme de cartes simples, sans effets visuels inutiles.
+
+6. Avantages
+Les avantages sont présentés de manière textuelle, sans icônes ni images, ce qui réduit encore le nombre de ressources.
+
+7. Call-to-action
+Un appel à l’action simple est conservé, car il est essentiel pour la fonction du site.
+
+8. Footer
+Le pied de page est également réduit au minimum.
+
+9. Point technique
+D’un point de vue technique, le site fonctionne uniquement en HTML et CSS, sans JavaScript, sans images et sans services externes.
+
+10. Impact
+Cela permet de réduire fortement :
+- le poids de la page
+- le nombre de requêtes
+- la complexité du rendu
+
+11. Conclusion
+On obtient donc une version beaucoup plus sobre, tout en restant fonctionnelle et compréhensible pour l’utilisateur.
