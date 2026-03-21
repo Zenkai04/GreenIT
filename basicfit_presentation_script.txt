@@ -1,0 +1,37 @@
+SCRIPT DE PRÉSENTATION — 5 à 6 minutes
+
+Slide 1 — Introduction
+Bonjour. Nous avons choisi d’étudier la page d’accueil du site Basic-Fit.
+L’objectif était d’analyser son impact environnemental, d’identifier les causes techniques de cet impact, puis de proposer une version écoconçue beaucoup plus sobre.
+
+Slide 2 — Résultats de mesure
+Les premiers résultats montrent un vrai problème du point de vue Green IT.
+Sur EcoIndex, la page obtient 17 sur 100, soit une classe F.
+Elle pèse un peu plus de 6 mégaoctets, contient 98 requêtes et plus de 3200 éléments DOM.
+WebsiteCarbon donne une note B, ce qui montre qu’il faut bien distinguer l’empreinte carbone liée au transfert de données et la sobriété front-end.
+
+Slide 3 — Audit technique
+Nous avons ensuite ouvert les outils de développement du navigateur pour comprendre d’où venait cette lourdeur.
+Nous avons observé 51 images, 18 scripts JavaScript, 9 fichiers CSS, 3 polices et plusieurs appels à des services tiers, notamment de tracking.
+Le site privilégie clairement la richesse marketing et les composants dynamiques, au prix d’une forte complexité technique.
+
+Slide 4 — Notre stratégie de refonte
+Notre réponse a été de revenir aux principes d’écoconception : simplifier, supprimer le superflu, et conserver seulement l’information utile.
+Concrètement, nous avons supprimé le JavaScript, supprimé les services tiers, fortement réduit la structure de la page et gardé uniquement les blocs essentiels : hero, abonnements, avantages, appel à l’action et footer.
+
+Slide 5 — Démonstration du prototype
+Voici notre nouvelle homepage.
+Nous avons gardé un header très simple, une section d’introduction claire, trois cartes d’offres, une section avantages et un bouton d’inscription.
+Le prototype fonctionne uniquement avec HTML et CSS, sans JavaScript.
+L’idée n’était pas de refaire exactement Basic-Fit, mais de montrer qu’on peut conserver la fonction principale avec beaucoup moins de ressources.
+
+Slide 6 — Comparaison avant / après
+Sur la version actuelle, nous avons 98 requêtes, 51 images, 18 scripts JavaScript et plusieurs dépendances à des services externes.
+Sur la version écoconçue, nous avons supprimé tout le JavaScript, tous les services tiers, toutes les images dans la version finale, et réduit la structure à une page statique très simple.
+Même sans mesure EcoIndex en ligne du prototype, la baisse de complexité est suffisamment forte pour conclure à une réduction nette de l’impact environnemental.
+
+Slide 7 — Conclusion
+Pour conclure, ce projet montre qu’un site marketing n’est pas forcément un site sobre.
+L’écoconception passe d’abord par une simplification du besoin et de l’interface.
+Notre prototype montre qu’on peut garder l’essentiel avec beaucoup moins de ressources.
+Merci.

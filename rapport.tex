@@ -9,85 +9,85 @@
 
 \usepackage[a4paper,margin=2.5cm]{geometry}
 \usepackage{setspace}
-\usepackage{parskip}
-\setlength{\parindent}{0pt}
 \onehalfspacing
-
-\usepackage{amsmath}
-\usepackage{array}
-\usepackage{booktabs}
-\usepackage{tabularx}
-\usepackage{multirow}
 
 \usepackage{graphicx}
 \usepackage{float}
-\usepackage{caption}
-\usepackage{subcaption}
-
-\usepackage[hidelinks]{hyperref}
-\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{hyperref}
 \usepackage{fancyhdr}
-\usepackage{titlesec}
 \usepackage{xcolor}
+\usepackage{titlesec}
 
-% --------------------------------------------------
-% Chemin des images
-% --------------------------------------------------
+% Images
 \graphicspath{{img/}}
 
 % --------------------------------------------------
-% Mise en page
+% Header / Footer
 % --------------------------------------------------
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{TP1 -- Green IT}
-\fancyhead[R]{Polytech Lyon}
+\fancyhead[L]{\textit{TP Green IT -- Écoconception Web}}
+\fancyhead[R]{\textit{Polytech Lyon}}
 \fancyfoot[C]{\thepage}
 
+% --------------------------------------------------
+% Colonnes tableau
+% --------------------------------------------------
 \newcolumntype{Y}{>{\raggedright\arraybackslash}X}
 
-\titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
-\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{}
-
 % --------------------------------------------------
-% Titre
+% Style titres
 % --------------------------------------------------
-\title{
-\textbf{TP1 -- Écoconception Web}\\
-\large Analyse de l'impact environnemental d'un site web et proposition d'une version écoconçue
-}
-
-\author{
-Nom Prénom 1 \\
-Nom Prénom 2
-}
-
-\date{Mars 2026}
+\titleformat{\section}{\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{1em}{}
 
 % --------------------------------------------------
 \begin{document}
 
-\maketitle
-\thispagestyle{empty}
+% ==================================================
+% PAGE DE GARDE
+% ==================================================
 
-\vspace{0.8cm}
+\begin{titlepage}
+\centering
 
-\begin{center}
+\vspace*{2cm}
+
+{\Huge \textbf{Écoconception Web}}\\[0.5cm]
+{\Large TP Green IT}\\[2cm]
+
+{\large \textbf{Analyse environnementale d’un site web}\\
+\textbf{et proposition d’une version écoconçue}}\\[2cm]
+
+\rule{\textwidth}{0.5pt}
+
+\vspace{1cm}
+
 \begin{tabular}{ll}
-Formation : & Polytech Lyon -- 4A Informatique \\
-Matière : & Green IT / Numérique responsable \\
-Enseignant : & F. Perraud \\
-Sujet : & Étude d'un site web et proposition d'une version écoconçue
+\textbf{Établissement :} & Polytech Lyon \\
+\textbf{Formation :} & 4A Informatique \\
+\textbf{Matière :} & Green IT \\
+\textbf{Enseignant :} & F. Perraud \\
+\textbf{Date :} & Mars 2026 \\
 \end{tabular}
-\end{center}
 
 \vfill
 
-\begin{abstract}
-Ce rapport présente l'étude environnementale de la page d'accueil du site Basic-Fit. L'analyse repose sur plusieurs outils de mesure d'impact écologique, notamment EcoIndex et WebsiteCarbon, ainsi que sur un audit technique mené à l'aide des outils de développement du navigateur. Les résultats mettent en évidence plusieurs mauvaises pratiques d'écoconception : poids élevé de la page, grand nombre de requêtes HTTP et structure DOM très complexe. Une refonte écoconçue de la page d'accueil est ensuite proposée et pourra être implémentée sous la forme d'une version HTML/CSS légère.
-\end{abstract}
+\textbf{Auteurs :}\\
+Nom Prénom 1\\
+Nom Prénom 2
 
-\newpage
+\vspace{1cm}
+
+\rule{\textwidth}{0.5pt}
+
+\vspace*{1cm}
+
+\end{titlepage}
+
+% --------------------------------------------------
 \tableofcontents
 \newpage
 
@@ -115,11 +115,11 @@ Plus précisément, l'analyse porte sur la \textbf{page d'accueil} du site.
 
 Ce site a pour objectif de présenter :
 \begin{itemize}
-\item l'offre commerciale de Basic-Fit
-\item les abonnements proposés
-\item les services disponibles
-\item les clubs et équipements
-\item différents contenus marketing destinés à convaincre l'utilisateur
+\item l'offre commerciale de Basic-Fit ;
+\item les abonnements proposés ;
+\item les services disponibles ;
+\item les clubs et équipements ;
+\item différents contenus marketing destinés à convaincre l'utilisateur.
 \end{itemize}
 
 Les principaux utilisateurs du site sont les visiteurs souhaitant découvrir l'offre, comparer les abonnements ou s'inscrire.
@@ -129,23 +129,27 @@ La page d'accueil constitue la principale porte d'entrée du site et concentre d
 % --------------------------------------------------
 \section{Méthodologie}
 
-L'étude a été réalisée en deux étapes principales :
+L'étude a été réalisée en plusieurs étapes :
 
 \begin{itemize}
-\item mesure de l'impact environnemental avec EcoIndex et WebsiteCarbon
-\item audit technique via les outils de développement du navigateur
+\item mesure de l'impact environnemental avec EcoIndex ;
+\item mesure complémentaire avec WebsiteCarbon ;
+\item audit technique via les outils de développement du navigateur ;
+\item proposition d'une refonte écoconçue ;
+\item réalisation d'un prototype léger en HTML/CSS.
 \end{itemize}
 
-L'onglet \texttt{Network} de Chrome DevTools permet ensuite d'analyser plus finement :
+L'onglet \texttt{Network} de Chrome DevTools permet d'analyser :
 \begin{itemize}
-\item le nombre de requêtes HTTP
-\item le nombre d'images
-\item les scripts JavaScript chargés
-\item les polices utilisées
-\item la structure générale des ressources téléchargées
+\item le nombre de requêtes HTTP ;
+\item le nombre d'images ;
+\item les scripts JavaScript chargés ;
+\item les polices utilisées ;
+\item les fichiers CSS ;
+\item la présence de services tiers et de requêtes dynamiques.
 \end{itemize}
 
-Dans cette première partie du travail, nous nous concentrons sur les résultats de mesure fournis par EcoIndex et WebsiteCarbon.
+Les résultats obtenus sont ensuite interprétés au regard des principes d'écoconception web étudiés en cours.
 
 % --------------------------------------------------
 \section{Analyse de l'impact environnemental}
@@ -191,8 +195,8 @@ WebsiteCarbon se concentre principalement sur les émissions de CO\textsubscript
 Selon EcoIndex, pour 1000 visites mensuelles, la page représenterait environ :
 
 \begin{itemize}
-\item 39.9 litres d'eau bleue consommés
-\item 2.66 kgCO2e émis
+\item 39.9 litres d'eau bleue consommés ;
+\item 2.66 kgCO2e émis.
 \end{itemize}
 
 Ces estimations permettent de mieux visualiser l'impact réel d'une page web lourde et complexe.
@@ -202,9 +206,9 @@ Ces estimations permettent de mieux visualiser l'impact réel d'une page web lou
 Les résultats montrent que la page d'accueil du site Basic-Fit présente plusieurs problèmes du point de vue de l'écoconception :
 
 \begin{itemize}
-\item un poids de page très élevé
-\item une complexité DOM excessive
-\item un nombre important de requêtes HTTP
+\item un poids de page très élevé ;
+\item une complexité DOM excessive ;
+\item un nombre important de requêtes HTTP.
 \end{itemize}
 
 Ces éléments indiquent que la page n'a pas été conçue dans une logique de sobriété numérique, mais plutôt dans une logique marketing privilégiant le visuel et l'expérience utilisateur.
@@ -249,35 +253,493 @@ Le poids élevé de la page suggère également la présence de nombreuses image
 \end{figure}
 
 % --------------------------------------------------
-\section{Première synthèse}
+\section{Audit technique de la page}
 
-À ce stade de l'étude, les résultats permettent déjà d'identifier plusieurs points faibles majeurs :
+\subsection{Analyse globale des ressources}
+
+L'analyse de la page d'accueil de Basic-Fit à l'aide de l'outil Network de Chrome DevTools permet d'obtenir les résultats suivants :
+
+\begin{table}[H]
+\centering
+\caption{Synthèse des ressources chargées}
+\begin{tabular}{lc}
+\toprule
+Indicateur & Valeur \\
+\midrule
+Nombre total de requêtes & 96 \\
+Poids total des ressources & 10.88 MB \\
+Poids transféré & 5.92 MB \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Ces résultats confirment les mesures précédentes : la page est particulièrement lourde et nécessite un nombre important de requêtes.
+
+\subsection{Analyse des images}
+
+La page contient \textbf{51 images} utilisant différents formats :
 
 \begin{itemize}
-\item la page est \textbf{très lourde} avec plus de 6 MB transférés
-\item la page est \textbf{très complexe} avec plus de 3200 éléments DOM
-\item la page nécessite \textbf{de nombreuses requêtes} pour être chargée
+\item JPEG ;
+\item WebP ;
+\item GIF ;
+\item SVG.
 \end{itemize}
 
-Ces constats montrent que la page d'accueil de Basic-Fit constitue un bon support d'étude pour un travail d'écoconception. La prochaine étape consistera à réaliser un audit technique plus détaillé à l'aide des outils de développement du navigateur afin d'identifier les causes précises de cette lourdeur.
+Certaines images sont relativement lourdes, notamment les images promotionnelles utilisées dans les bannières et les sections marketing.
+
+Le nombre élevé d'images contribue fortement au poids total de la page. Bien que le format WebP soit utilisé, la quantité globale d'images reste excessive.
+
+\subsection{Analyse des scripts JavaScript}
+
+L'analyse révèle la présence de \textbf{18 fichiers JavaScript}.
+
+Parmi les scripts observés, on distingue :
+\begin{itemize}
+\item des scripts fonctionnels liés à l'interface utilisateur ;
+\item des scripts de tracking et d'analytics ;
+\item des scripts liés à des fonctionnalités marketing ou dynamiques.
+\end{itemize}
+
+Ces scripts augmentent :
+\begin{itemize}
+\item le temps de chargement ;
+\item la consommation CPU ;
+\item la complexité globale de la page.
+\end{itemize}
+
+\subsection{Analyse des feuilles de style}
+
+La page charge \textbf{9 fichiers CSS}.
+
+Un nombre élevé de fichiers CSS peut entraîner :
+\begin{itemize}
+\item une multiplication des requêtes ;
+\item un temps de rendu plus long ;
+\item une complexité accrue du style.
+\end{itemize}
+
+\subsection{Analyse des polices}
+
+La page utilise \textbf{3 fichiers de polices} au format \texttt{woff2}.
+
+Ce format est optimisé pour le web, mais le chargement de plusieurs polices reste coûteux en termes de requêtes et de poids.
+
+\subsection{Analyse des requêtes réseau avancées}
+
+Des requêtes de type \textbf{XHR} sont également présentes, indiquant des échanges dynamiques avec le serveur.
+
+De plus, plusieurs requêtes vers des services externes ont été observées, notamment des services de tracking et d'analyse. Ces appels externes augmentent la consommation réseau et renforcent la dépendance à des services tiers.
+
+\subsection{Capture de l'analyse réseau}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{network.png}
+\caption{Analyse des ressources chargées via Chrome DevTools}
+\end{figure}
+
+\subsection{Synthèse des problèmes identifiés}
+
+\begin{table}[H]
+\centering
+\caption{Synthèse des problèmes techniques}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|}
+\hline
+Problème & Cause & Impact \\
+\hline
+Poids élevé & nombreuses images & consommation réseau élevée \\
+\hline
+Nombre élevé d'images & contenu marketing & chargement ralenti \\
+\hline
+Scripts multiples & tracking + interface & consommation CPU \\
+\hline
+Requêtes externes & services tiers & latence + dépendance \\
+\hline
+DOM complexe & structure riche & rendu coûteux \\
+\hline
+CSS multiples & organisation front-end & surcharge réseau \\
+\hline
+\end{tabularx}
+\end{table}
+
+% --------------------------------------------------
+\section{Analyse selon les principes d'écoconception}
+
+L'écoconception web repose notamment sur trois principes importants : la simplicité, la frugalité et la pertinence.
+
+\subsection{Simplicité}
+
+La page étudiée présente une structure relativement dense, de nombreuses ressources et une organisation visuelle chargée. Cela va à l'encontre d'une démarche de simplicité.
+
+\subsection{Frugalité}
+
+Le poids élevé de la page, le nombre d'images et le volume de scripts montrent que la page mobilise un grand nombre de ressources. Cette approche n'est pas compatible avec une logique de sobriété numérique.
+
+\subsection{Pertinence}
+
+Certaines fonctionnalités ou ressources chargées paraissent non indispensables pour un site institutionnel ou commercial dont l'objectif principal est de transmettre de l'information utile et d'orienter l'utilisateur vers une offre.
+
+% --------------------------------------------------
+\section{Analyse selon le cycle de vie du service numérique}
+
+L'écoconception ne se limite pas au code. Elle doit être prise en compte tout au long du cycle de vie du service numérique.
+
+\subsection{Expression du besoin}
+
+Les besoins principaux des utilisateurs sont relativement simples :
+
+\begin{itemize}
+\item découvrir l'offre Basic-Fit ;
+\item comparer les abonnements ;
+\item consulter les avantages principaux ;
+\item trouver un club ;
+\item s'inscrire.
+\end{itemize}
+
+De nombreuses fonctionnalités observées sur le site actuel ne semblent pas strictement indispensables à ces objectifs.
+
+\subsection{Conception fonctionnelle}
+
+La conception fonctionnelle doit privilégier la clarté et éviter les fonctionnalités superflues. Une page d'accueil peut rester efficace avec peu de sections, à condition que celles-ci soient bien hiérarchisées.
+
+\subsection{Conception technique}
+
+La conception technique de notre proposition repose sur plusieurs choix simples :
+
+\begin{itemize}
+\item suppression du JavaScript ;
+\item limitation du nombre d'images ;
+\item utilisation de polices système ;
+\item structure HTML simplifiée.
+\end{itemize}
+
+\subsection{Maintenance}
+
+Une architecture simple facilite la maintenance et limite les coûts techniques et énergétiques liés aux futures évolutions du site.
+
+% --------------------------------------------------
+\section{Propositions d'amélioration}
+
+À partir de l'analyse technique réalisée précédemment, plusieurs axes d'amélioration peuvent être proposés afin de réduire l'impact environnemental de la page.
+
+\subsection{Optimisation des images}
+
+\textbf{Problème :} la page contient un nombre élevé d'images, dont certaines sont volumineuses.
+
+\textbf{Solutions proposées :}
+\begin{itemize}
+\item réduire le nombre d'images non essentielles ;
+\item compresser les images ;
+\item privilégier les formats modernes comme WebP ou AVIF ;
+\item mettre en place du lazy loading.
+\end{itemize}
+
+\textbf{Impact attendu :} réduction significative du poids de la page et du temps de chargement.
+
+\subsection{Réduction des scripts JavaScript}
+
+\textbf{Problème :} présence de nombreux scripts JavaScript, notamment liés au tracking et aux animations.
+
+\textbf{Solutions proposées :}
+\begin{itemize}
+\item supprimer les scripts non essentiels ;
+\item limiter les outils de tracking ;
+\item regrouper et minifier les fichiers JavaScript ;
+\item charger les scripts de manière différée.
+\end{itemize}
+
+\textbf{Impact attendu :} diminution de la consommation CPU et amélioration des performances.
+
+\subsection{Optimisation des feuilles de style}
+
+\textbf{Problème :} nombre important de fichiers CSS.
+
+\textbf{Solutions proposées :}
+\begin{itemize}
+\item regrouper les fichiers CSS ;
+\item supprimer les styles inutilisés ;
+\item minifier les fichiers.
+\end{itemize}
+
+\textbf{Impact attendu :} réduction du nombre de requêtes et amélioration du temps de rendu.
+
+\subsection{Réduction de la complexité du DOM}
+
+\textbf{Problème :} le DOM contient plus de 3200 éléments.
+
+\textbf{Solutions proposées :}
+\begin{itemize}
+\item simplifier la structure HTML ;
+\item supprimer les éléments inutiles ;
+\item limiter l'imbrication des composants.
+\end{itemize}
+
+\textbf{Impact attendu :} réduction du coût de rendu côté navigateur.
+
+\subsection{Réduction des requêtes externes}
+
+\textbf{Problème :} présence de nombreuses requêtes vers des services tiers.
+
+\textbf{Solutions proposées :}
+\begin{itemize}
+\item limiter les appels externes ;
+\item héberger certaines ressources localement ;
+\item supprimer les services non indispensables.
+\end{itemize}
+
+\textbf{Impact attendu :} réduction de la latence et amélioration de la sobriété du service.
+
+\subsection{Utilisation de polices système}
+
+\textbf{Problème :} chargement de plusieurs fichiers de polices.
+
+\textbf{Solutions proposées :}
+\begin{itemize}
+\item utiliser des polices système ;
+\item limiter le nombre de variantes.
+\end{itemize}
+
+\textbf{Impact attendu :} réduction des requêtes et du poids global.
+
+\subsection{Synthèse des améliorations}
+
+\begin{table}[H]
+\centering
+\caption{Synthèse des améliorations proposées}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|}
+\hline
+Problème & Solution & Bénéfice \\
+\hline
+Images nombreuses & compression + réduction & poids réduit \\
+\hline
+Scripts multiples & suppression + optimisation & moins de CPU \\
+\hline
+CSS multiples & fusion + minification & moins de requêtes \\
+\hline
+DOM complexe & simplification & rendu plus rapide \\
+\hline
+Tracking externe & limitation & moins de réseau \\
+\hline
+Polices web & polices système & moins de chargement \\
+\hline
+\end{tabularx}
+\end{table}
+
+% --------------------------------------------------
+\section{Réalisation d'une version écoconçue}
+
+\subsection{Objectif}
+
+L'objectif est de proposer une version simplifiée de la page d'accueil du site Basic-Fit respectant les principes d'écoconception web.
+
+\subsection{Choix de conception}
+
+La version proposée repose sur plusieurs choix forts :
+
+\begin{itemize}
+\item suppression totale du JavaScript ;
+\item utilisation exclusive de HTML et CSS ;
+\item absence de bibliothèques externes ;
+\item utilisation de polices système ;
+\item réduction maximale du nombre d'images.
+\end{itemize}
+
+Une seule image principale peut être conservée afin de maintenir une attractivité visuelle cohérente avec l'identité du site.
+
+\subsection{Structure de la page}
+
+La page écoconçue contient les sections suivantes :
+
+\begin{itemize}
+\item en-tête avec navigation simplifiée ;
+\item section d'introduction (\textit{hero}) ;
+\item présentation des abonnements ;
+\item avantages principaux ;
+\item appel à l'action ;
+\item pied de page.
+\end{itemize}
+
+\subsection{Justification des choix}
+
+Ces choix permettent de réduire :
+
+\begin{itemize}
+\item le poids de la page ;
+\item le nombre de requêtes HTTP ;
+\item la consommation CPU ;
+\item la complexité du DOM.
+\end{itemize}
+
+Tout en conservant les informations essentielles pour l'utilisateur.
+
+\subsection{Architecture}
+
+\begin{center}
+Utilisateur $\rightarrow$ Navigateur $\rightarrow$ HTML/CSS $\rightarrow$ Serveur
+\end{center}
+
+Cette architecture est volontairement simple afin de réduire le nombre de ressources nécessaires.
+
+\subsection{Aperçu de la solution}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{site_eco.png}
+\caption{Page d'accueil écoconçue proposée}
+\end{figure}
+
+% --------------------------------------------------
+\section{Démonstration de la solution proposée}
+
+Afin d'illustrer concrètement les principes d'écoconception étudiés dans ce projet, une page d'accueil alternative du site a été développée sous la forme d'un prototype.
+
+Cette démonstration permet de montrer qu'il est possible de concevoir une interface web plus légère tout en conservant les informations essentielles pour l'utilisateur.
+
+\subsection{Structure de la démonstration}
+
+Le prototype réalisé correspond à une page d'accueil simplifiée du site Basic-Fit. Cette page contient les éléments suivants :
+
+\begin{itemize}
+\item une section d'introduction présentant l'offre ;
+\item une section dédiée aux abonnements ;
+\item une section présentant les avantages principaux ;
+\item un appel à l'action final ;
+\item un pied de page contenant les informations essentielles.
+\end{itemize}
+
+La navigation est volontairement simple et directe afin de limiter la complexité de l'interface.
+
+\subsection{Technologies utilisées}
+
+La page a été développée uniquement avec les technologies suivantes :
+
+\begin{itemize}
+\item HTML ;
+\item CSS.
+\end{itemize}
+
+Aucun script JavaScript ni aucune bibliothèque externe n'ont été utilisés. Cette approche permet de réduire le nombre de requêtes HTTP et la consommation de ressources côté navigateur.
+
+\subsection{Exécution du prototype}
+
+Le prototype peut être exécuté localement en ouvrant simplement le fichier \texttt{index.html} dans un navigateur web ou via un petit serveur local.
+
+Cette simplicité d'exécution permet également de présenter facilement la solution lors de la démonstration finale.
+
+\subsection{Bénéfices observés}
+
+La version proposée présente plusieurs avantages :
+
+\begin{itemize}
+\item réduction du nombre de ressources chargées ;
+\item diminution du poids global de la page ;
+\item simplification de la structure HTML ;
+\item meilleure lisibilité du contenu.
+\end{itemize}
+
+Cette démonstration montre qu'une approche d'écoconception permet de réduire l'impact environnemental d'un site web tout en conservant une interface fonctionnelle et accessible.
+
+% --------------------------------------------------
+\section{Comparaison entre l'existant et la version écoconçue}
+
+En l'absence de déploiement public de la version écoconçue, il n'a pas été possible de mesurer directement celle-ci avec EcoIndex ou WebsiteCarbon. Nous proposons donc une comparaison qualitative basée sur les caractéristiques techniques observées.
+
+\begin{table}[H]
+\centering
+\caption{Comparaison qualitative entre la page actuelle et la version écoconçue}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|}
+\hline
+Critère & Site actuel Basic-Fit & Version écoconçue proposée \\
+\hline
+Poids de page & 6.017 MB & fortement réduit \\
+\hline
+Requêtes HTTP & 98 & très fortement réduit \\
+\hline
+Images & 51 images & 0 à 1 image maximum \\
+\hline
+Scripts JavaScript & 18 scripts & 0 \\
+\hline
+Fichiers CSS & 9 fichiers & 1 fichier CSS \\
+\hline
+Polices web & 3 fichiers WOFF2 & polices système \\
+\hline
+DOM & 3211 éléments & structure fortement simplifiée \\
+\hline
+Services tiers & tracking, analytics, services externes & aucun \\
+\hline
+Architecture front-end & complexe & simple et statique \\
+\hline
+\end{tabularx}
+\end{table}
+
+Cette comparaison met en évidence une réduction importante de la complexité technique et des ressources nécessaires. Même sans mesure automatisée, la suppression du JavaScript, des services tiers et de la majorité des images permet d'affirmer que la version proposée aurait un impact environnemental nettement inférieur à celui de la page d'origine.
+
+% --------------------------------------------------
+\section{Maquette et choix d'interface}
+
+Même si la version proposée est directement codée, elle joue aussi le rôle de maquette fonctionnelle.
+
+Les objectifs d'interface étaient les suivants :
+
+\begin{itemize}
+\item conserver une image claire et moderne de la marque ;
+\item améliorer la lisibilité ;
+\item réduire les contenus décoratifs non essentiels ;
+\item guider rapidement l'utilisateur vers les rubriques importantes.
+\end{itemize}
+
+La page propose une zone d'introduction courte, quelques cartes de contenu principales, une présentation simplifiée des offres et un pied de page sobre.
+
+% --------------------------------------------------
+\section{Compétences mises en œuvre}
+
+Ce projet a permis de mobiliser les compétences suivantes :
+
+\begin{itemize}
+\item analyse environnementale d'un service web ;
+\item utilisation d'outils de mesure d'impact écologique ;
+\item audit technique avec les outils développeur du navigateur ;
+\item identification de mauvaises pratiques d'écoconception ;
+\item conception d'une interface sobre et fonctionnelle ;
+\item développement HTML/CSS ;
+\item rédaction d'un rapport technique.
+\end{itemize}
+
+% --------------------------------------------------
+\section{Limites de l'étude}
+
+Cette étude présente plusieurs limites :
+
+\begin{itemize}
+\item l'analyse a été réalisée uniquement sur la page d'accueil ;
+\item les outils de mesure donnent des estimations et non des valeurs absolues exactes ;
+\item la version écoconçue proposée constitue une preuve de concept et non un déploiement complet.
+\end{itemize}
+
+La version écoconçue réalisée dans ce projet n'a pas été déployée sur un serveur public. Il n'a donc pas été possible de l'évaluer directement avec les outils EcoIndex et WebsiteCarbon, qui nécessitent une URL accessible en ligne.
+
+Néanmoins, la comparaison des caractéristiques techniques permet déjà d'estimer une amélioration significative en matière de sobriété numérique.
 
 % --------------------------------------------------
 \section{Conclusion}
 
-Cette première phase d'analyse met en évidence un impact environnemental important de la page d'accueil de Basic-Fit. Malgré une note WebsiteCarbon relativement correcte, le score EcoIndex est très faible et révèle une page lourde, complexe et coûteuse du point de vue du rendu navigateur.
+L'étude montre que la page d'accueil actuelle de Basic-Fit présente plusieurs inefficacités environnementales : poids important, nombreuses images, nombreux scripts, services tiers et structure DOM complexe.
 
-L'étape suivante consistera à analyser plus finement les ressources réellement chargées par la page afin d'identifier les mauvaises pratiques techniques responsables de cette situation.
+La version écoconçue proposée démontre qu'il est possible de concevoir une interface plus simple, plus légère et plus respectueuse de l'environnement tout en conservant les informations essentielles.
+
+Ce travail met en évidence l'importance des choix réalisés dès la conception, et montre qu'une approche fondée sur la simplicité, la frugalité et la pertinence permet d'améliorer significativement la sobriété d'un service web.
 
 % --------------------------------------------------
 \section{Bibliographie}
 
 \begin{itemize}
-\item ADEME -- \textit{La face cachée du numérique}
-\item GreenIT.fr -- Référentiel d'écoconception web
-\item EcoIndex -- \url{https://www.ecoindex.fr}
-\item WebsiteCarbon -- \url{https://www.websitecarbon.com}
-\item Support de cours Green IT / Numérique responsable
-\item Sujet de TP -- Étude d'un site web
+\item ADEME -- \textit{La face cachée du numérique} ;
+\item GreenIT.fr -- Référentiel d'écoconception web ;
+\item EcoIndex -- \url{https://www.ecoindex.fr} ;
+\item WebsiteCarbon -- \url{https://www.websitecarbon.com} ;
+\item Support de cours Green IT / Numérique responsable ;
+\item Sujet de TP -- Étude d'un site web.
 \end{itemize}
 
 % --------------------------------------------------
@@ -292,7 +754,9 @@ rapport/
      ├ ecoindex_global.png
      ├ ecoindex_details.png
      ├ ecoindex_empreinte.png
-     └ websitecarbon.png
+     ├ websitecarbon.png
+     ├ network.png
+     └ site_eco.png
 \end{verbatim}
 
 \section{Captures utilisées}
@@ -304,6 +768,21 @@ Les images suivantes doivent être placées dans le dossier \texttt{img/} :
 \item ecoindex_details.png
 \item ecoindex_empreinte.png
 \item websitecarbon.png
+\item network.png
+\item site_eco.png
 \end{itemize}
+
+\section{Conseils pour la démonstration pratique}
+
+La démonstration finale peut se dérouler simplement en quatre temps :
+
+\begin{itemize}
+\item présentation rapide du site original ;
+\item rappel des résultats EcoIndex et WebsiteCarbon ;
+\item visualisation de l'audit réseau avec DevTools ;
+\item présentation du prototype écoconçu local.
+\end{itemize}
+
+Pour exécuter localement le prototype, il est possible d'ouvrir directement le fichier \texttt{index.html} dans un navigateur, ou d'utiliser un petit serveur local.
 
 \end{document}
