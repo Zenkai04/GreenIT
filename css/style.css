@@ -30,10 +30,37 @@ nav a {
     text-align: center;
 }
 
+.showcase {
+    padding: 40px 20px;
+    background: #fff;
+    text-align: center;
+}
+
+.image-grid {
+    max-width: 980px;
+    margin: 0 auto;
+    display: grid;
+    gap: 18px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.image-card {
+    margin: 0;
+    border: 1px solid #ddd;
+    background: #fafafa;
+}
+
+.image-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
 .cards {
     display: flex;
     gap: 20px;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .card {

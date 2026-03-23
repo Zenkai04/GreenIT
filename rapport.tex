@@ -542,10 +542,10 @@ La version proposée repose sur plusieurs choix forts :
 \item utilisation exclusive de HTML et CSS ;
 \item absence de bibliothèques externes ;
 \item utilisation de polices système ;
-\item réduction maximale du nombre d'images.
+\item limitation stricte du nombre d'images à deux visuels commerciaux.
 \end{itemize}
 
-Une seule image principale peut être conservée afin de maintenir une attractivité visuelle cohérente avec l'identité du site.
+Deux images (\texttt{basic\_image\_1.jpg} et \texttt{basic\_image\_2.jpg}) sont conservées afin de maintenir une attractivité visuelle cohérente avec l'identité commerciale du site, tout en restant dans une logique de sobriété.
 
 \subsection{Structure de la page}
 
@@ -656,7 +656,7 @@ Poids de page & 6.017 MB & fortement réduit \\
 \hline
 Requêtes HTTP & 98 & très fortement réduit \\
 \hline
-Images & 51 images & 0 à 1 image maximum \\
+Images & 51 images & 2 images (basic\_image\_1 et basic\_image\_2) \\
 \hline
 Scripts JavaScript & 18 scripts & 0 \\
 \hline
@@ -673,7 +673,21 @@ Architecture front-end & complexe & simple et statique \\
 \end{tabularx}
 \end{table}
 
-Cette comparaison met en évidence une réduction importante de la complexité technique et des ressources nécessaires. Même sans mesure automatisée, la suppression du JavaScript, des services tiers et de la majorité des images permet d'affirmer que la version proposée aurait un impact environnemental nettement inférieur à celui de la page d'origine.
+Cette comparaison met en évidence une réduction importante de la complexité technique et des ressources nécessaires. Même sans mesure automatisée, la suppression du JavaScript, des services tiers et la réduction massive du volume d'images permettent d'affirmer que la version proposée aurait un impact environnemental nettement inférieur à celui de la page d'origine.
+
+\subsection{Prise en compte EcoIndex après ajout des images}
+
+L'ajout de \texttt{basic\_image\_1.jpg} et \texttt{basic\_image\_2.jpg} répond à un besoin commercial de visibilité produit. D'un point de vue EcoIndex, cet ajout augmente légèrement le poids et le nombre de ressources chargées par rapport à une version strictement minimale sans visuels.
+
+L'impact reste toutefois maîtrisé car :
+\begin{itemize}
+\item le nombre d'images est limité à deux fichiers ;
+\item les fichiers sont compressés (environ 33 KB et 85 KB) ;
+\item un chargement différé (\texttt{loading="lazy"}) est appliqué à l'image secondaire ;
+\item les dimensions HTML (\texttt{width}/\texttt{height}) sont renseignées pour limiter les recalculs de mise en page.
+\end{itemize}
+
+Par conséquent, les indicateurs EcoIndex clés (poids de page, requêtes HTTP, complexité DOM) restent nettement meilleurs que ceux du site d'origine, avec un compromis assumé entre performance environnementale et efficacité commerciale.
 
 % --------------------------------------------------
 \section{Maquette et choix d'interface}
@@ -770,6 +784,8 @@ Les images suivantes doivent être placées dans le dossier \texttt{img/} :
 \item websitecarbon.png
 \item network.png
 \item site_eco.png
+\item basic\_image\_1.jpg
+\item basic\_image\_2.jpg
 \end{itemize}
 
 \section{Conseils pour la démonstration pratique}
